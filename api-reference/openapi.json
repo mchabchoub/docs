@@ -124,13 +124,56 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "example": 200
+                    },
+                    "statusInfo": {
+                      "type": "string",
+                      "description": "Additional status information.",
+                      "example": "200 Success"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The URL that was rendered.",
+                      "example": "https://api.ipify.org/?format=json"
+                    },
                     "html": {
                       "type": "string",
-                      "description": "The rendered HTML."
+                      "description": "The HTML content returned from the URL.",
+                      "example": "{\n  \"ip\": \"196.224.51.18\"\n}"
                     },
-                    "extractedContent": {
+                    "extractedData": {
                       "type": "object",
-                      "description": "Content extracted based on the custom function."
+                      "description": "Data extracted using the provided custom function.",
+                      "properties": {
+                        "metadata": {
+                          "type": "object",
+                          "description": "Metadata extracted from the HTML content.",
+                          "example": {}
+                        }
+                      }
+                    },
+                    "duration": {
+                      "type": "number",
+                      "description": "The time taken to render the page (in milliseconds).",
+                      "example": 421.5403329999972
+                    },
+                    "credits": {
+                      "type": "integer",
+                      "description": "The total credits available for the user.",
+                      "example": 1500
+                    },
+                    "creditsUsed": {
+                      "type": "integer",
+                      "description": "The number of credits used for this request.",
+                      "example": 197
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "A message indicating the status of the page rendering.",
+                      "example": "Page loaded successfully with status: OK (200)"
                     }
                   }
                 }
