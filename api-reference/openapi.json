@@ -10,6 +10,11 @@
       "post": {
         "summary": "Renders the HTML of a given URL and applies a custom extraction function",
         "tags": ["APIs"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "query",
