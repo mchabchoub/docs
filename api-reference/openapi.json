@@ -3,8 +3,33 @@
   "info": {
     "title": "API Documentation",
     "version": "1.0.0",
-    "description": "API for rendering HTML and applying a custom extraction function"
+    "description": "API documentation for the application"
   },
+  "servers": [
+    {
+      "url": "http://localhost:3100",
+      "description": "Development server"
+    },
+    {
+      "url": "https://api.production.com",
+      "description": "Production server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-token",
+        "description": "API Token needed to access the endpoints"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
   "paths": {
     "/v1/render": {
       "post": {
@@ -52,11 +77,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "apiToken": {
-                    "type": "string",
-                    "description": "The API token used for authentication.",
-                    "example": "some-api-token"
-                  },
                   "cssSelector": {
                     "type": "string",
                     "description": "The CSS selector used for extracting specific elements.",
