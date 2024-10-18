@@ -179,6 +179,33 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Page not found or URL invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "example": 404
+                    },
+                    "statusInfo": {
+                      "type": "string",
+                      "description": "Additional status information.",
+                      "example": "404 Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Description of the error.",
+                      "example": "The requested URL was not found on the server."
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
