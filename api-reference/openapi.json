@@ -7,12 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3100",
-      "description": "Development server"
-    },
-    {
       "url": "https://api.production.com",
-      "description": "Production server"
     }
   ],
   "components": {
