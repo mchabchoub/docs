@@ -195,12 +195,32 @@
                     "statusInfo": {
                       "type": "string",
                       "description": "Additional status information.",
-                      "example": "404 Not Found"
+                      "example": "HTTP Error: 404 Not Found"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The URL that was attempted.",
+                      "example": "https://api.ipify.org/dddaaa?format=json"
+                    },
+                    "duration": {
+                      "type": "number",
+                      "description": "The time taken to attempt the request (in milliseconds).",
+                      "example": 403.56820900016464
+                    },
+                    "credits": {
+                      "type": "integer",
+                      "description": "The total credits available for the user.",
+                      "example": 1500
+                    },
+                    "creditsUsed": {
+                      "type": "integer",
+                      "description": "The number of credits used for this request.",
+                      "example": 197
                     },
                     "message": {
                       "type": "string",
-                      "description": "Description of the error.",
-                      "example": "The requested URL was not found on the server."
+                      "description": "A message indicating the status of the failed page rendering.",
+                      "example": "Page returned a non-successful status: Not Found (404)"
                     }
                   }
                 }
