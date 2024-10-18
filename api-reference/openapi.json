@@ -1,194 +1,118 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "title": "API Documentation",
+    "version": "1.0.0",
+    "description": "API for rendering HTML and applying a custom extraction function"
   },
-  "servers": [
-    {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
   "paths": {
     "/v1/render": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
+      "post": {
+        "summary": "Renders the HTML of a given URL and applies a custom extraction function",
+        "tags": ["APIs"],
         "parameters": [
           {
-            "name": "limit",
             "in": "query",
-            "description": "The maximum number of results to return",
+            "name": "url",
+            "schema": {
+              "type": "string",
+              "default": "https://api.ipify.org/?format=json"
+            },
+            "required": true,
+            "description": "The URL of the page to be rendered."
+          },
+          {
+            "in": "query",
+            "name": "render_js",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Whether to execute JavaScript on the page."
+          },
+          {
+            "in": "query",
+            "name": "timeout",
             "schema": {
               "type": "integer",
-              "format": "int32"
-            }
+              "default": 30000
+            },
+            "description": "The maximum time allowed for rendering the page."
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "apiToken": {
+                    "type": "string",
+                    "description": "The API token used for authentication.",
+                    "example": "some-api-token"
+                  },
+                  "cssSelector": {
+                    "type": "string",
+                    "description": "The CSS selector used for extracting specific elements.",
+                    "default": ""
+                  },
+                  "proxy": {
+                    "type": "string",
+                    "description": "The proxy server to use for the request.",
+                    "default": ""
+                  },
+                  "headers": {
+                    "type": "object",
+                    "description": "Optional HTTP headers to send with the request."
+                  },
+                  "cookies": {
+                    "type": "string",
+                    "description": "Optional cookies to send with the request.",
+                    "example": "cookie_name_1=cookie_value1;cookie_name_2=cookie_value_2"
+                  },
+                  "screenshot": {
+                    "type": "boolean",
+                    "description": "Whether to take a screenshot of the page.",
+                    "default": false
+                  },
+                  "extractorFunction": {
+                    "type": "string",
+                    "description": "A custom function to extract specific content from the HTML.",
+                    "default": "function extractMetadata(input, cheerio) {\n  let $ = cheerio.load(input);\n  let metadata = {};\n  $('meta').each(function() {\n    let name = $(this).attr('name') || $(this).attr('property');\n    if (name) {\n      metadata[name] = $(this).attr('content');\n    }\n  });\n  return { metadata };\n}"
+                  },
+                  "jsScenario": {
+                    "type": "string",
+                    "description": "JavaScript scenario to execute during rendering.",
+                    "default": "{\n  \"instructions\": [\n    {\"fill\": [\"#search_description\", \"Restaurants\"]},\n    {\"fill\": [\"#search_location\", \"New York\"]},\n    {\"click\": \"button[aria-label='Recherche']\"}\n  ]\n}"
                   }
                 }
               }
             }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "The rendered HTML and extracted content based on the custom function.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "type": "object",
+                  "properties": {
+                    "html": {
+                      "type": "string",
+                      "description": "The rendered HTML."
+                    },
+                    "extractedContent": {
+                      "type": "object",
+                      "description": "Content extracted based on the custom function."
+                    }
+                  }
                 }
               }
             }
           }
         }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
       }
     }
   }
