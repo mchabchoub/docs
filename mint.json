@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Render JS Documentation",
   "logo": {
-    "dark": "/logo/dark.svg",
+    "dark": "https://www.scrapingrocket.com/assets/img/logo_colored.png",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
@@ -18,12 +18,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "https://scrapingrocket.com/contact-us"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://wwww.scrapingrocket.com"
   },
   "tabs": [],
   "anchors": [],
