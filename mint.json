@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Render JS Documentation",
+  "name": "Scraping Rocket Documentation",
   "logo": {
     "dark": "https://www.scrapingrocket.com/assets/img/logo_for_dark.png",
     "light": "https://www.scrapingrocket.com/assets/img/logo_colored.png"
