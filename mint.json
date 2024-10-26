@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Render JS Documentation",
   "logo": {
-    "dark": "https://www.scrapingrocket.com/assets/img/logo_colored.png",
-    "light": "/logo/light.svg"
+    "dark": "https://www.scrapingrocket.com/assets/img/logo_for_dark.png",
+    "light": "https://www.scrapingrocket.com/assets/img/logo_colored.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
