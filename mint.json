@@ -31,13 +31,13 @@
     {
       "group": "Get Started",
       "pages": [
-        "api-reference/introduction"
+        "introduction"
       ]
     },
     {
-      "group": "Render JS",
+      "group": "Request Builder",
       "pages": [
-         "api-reference/endpoint/create"
+         "request-builder"
        ]
     }
   ],
