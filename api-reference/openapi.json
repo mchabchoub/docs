@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api.production.com"
+      "url": "https://scrapingrocket.com"
     }
   ],
   "components": {
