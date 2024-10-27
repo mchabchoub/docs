@@ -31,13 +31,13 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction"
+        "api-reference/introduction"
       ]
     },
     {
       "group": "Request Builder",
       "pages": [
-         "request-builder"
+         "api-reference/request-builder"
        ]
     }
   ],
