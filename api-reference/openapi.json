@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://scrapingrocket.com"
+      "url": "https://api.scrapingrocket.com"
     }
   ],
   "components": {
