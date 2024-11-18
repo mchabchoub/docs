@@ -171,16 +171,16 @@
                     "duration": {
                       "type": "number",
                       "description": "The time taken to render the page (in milliseconds).",
-                      "example": 421.5403329999972
+                      "example": 3490
                     },
                     "credits": {
                       "type": "integer",
                       "description": "The total credits available for the user.",
-                      "example": 1500
+                      "example": 1000
                     },
                     "creditsUsed": {
                       "type": "integer",
-                      "description": "The number of credits used for this request.",
+                      "description": "The number of used credits this month by this user.",
                       "example": 197
                     },
                     "message": {
@@ -218,16 +218,16 @@
                     "duration": {
                       "type": "number",
                       "description": "The time taken to attempt the request (in milliseconds).",
-                      "example": 403.56820900016464
+                      "example": 3490
                     },
                     "credits": {
                       "type": "integer",
                       "description": "The total credits available for the user.",
-                      "example": 1500
+                      "example": 1000
                     },
                     "creditsUsed": {
                       "type": "integer",
-                      "description": "The number of credits used for this request.",
+                      "description": "The number of used credits this month by this user.",
                       "example": 197
                     },
                     "message": {
