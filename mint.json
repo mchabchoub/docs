@@ -5,7 +5,7 @@
     "dark": "https://www.scrapingrocket.com/assets/img/logo_for_dark.svg",
     "light": "https://www.scrapingrocket.com/assets/img/logo_colored.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://www.scrapingrocket.com/assets/img/favicon.svg",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
