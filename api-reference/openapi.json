@@ -77,10 +77,28 @@
                     "description": "The CSS selector used for extracting specific elements.",
                     "default": ""
                   },
-                  "proxy": {
+                  "proxy_type": {
                     "type": "string",
-                    "description": "The proxy server to use for the request.",
+                    "description": "The proxy server type to use for the request.",
+                    "enum": ["", "custom", "premium"],
                     "default": ""
+                  },
+                  "country_code": {
+                    "type": "string",
+                    "description": "The country code for the proxy.",
+                    "enum": ["", "uk", "ca", "us", "fr"],
+                    "default": ""
+                  },
+                  "proxy_url": {
+                    "type": "string",
+                    "description": "The URL of the proxy server.",
+                    "example": "http://proxy.example.com:8080"
+                  },
+                  "waitBrowser": {
+                    "type": "string",
+                    "description": "Specifies the wait condition for the browser to consider the page as fully loaded.",
+                    "enum": ["networkidle", "domcontentloaded", "load", "none"],
+                    "default": "networkidle"
                   },
                   "headers": {
                     "type": "object",
