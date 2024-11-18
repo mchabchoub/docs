@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Scraping Rocket Documentation",
   "logo": {
-    "dark": "https://www.scrapingrocket.com/assets/img/logo_for_dark.png",
-    "light": "https://www.scrapingrocket.com/assets/img/logo_colored.png"
+    "dark": "https://www.scrapingrocket.com/assets/img/logo_for_dark.svg",
+    "light": "https://www.scrapingrocket.com/assets/img/logo_colored.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
