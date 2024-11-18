@@ -92,7 +92,7 @@
                   "proxy_url": {
                     "type": "string",
                     "description": "The URL of the proxy server.",
-                    "example": "http://proxy.example.com:8080"
+                    "default": ""
                   },
                   "waitBrowser": {
                     "type": "string",
